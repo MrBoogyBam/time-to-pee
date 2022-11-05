@@ -35,4 +35,4 @@ January 2022 - Peeing halts, pee begins building up as research on his model of 
 February 2022 - Peeing resumes.
 October 2022 - Anomaly discovered, research begins.\
 November 2022 - Peeing halts and begins building up.\
-December 2022 - Research predicts no pee will be emitted, nor produced, during this period.\
+December 2022 - Research predicts no pee will be emitted, nor produced, during this period.
