@@ -29,7 +29,7 @@ During the months of November and January, his penis cannot release any drops of
 January 3rd 2021 - Commitment to peeing begins.\
 January 12th 2021 - Mitigations ensue to stop peeing errors during January.\
 February 1st 2021 - Peeing resumes.\
-November 2021 - At this point in time, peeing rate has slowed down significantly, peeing halts for the month of November.\
+November 2021 - At this point in time, peeing rate has slowed down significantly, peeing halts for the month.\
 December 2021 - Peeing resumes.\
 January 2022 - Peeing halts, pee begins building up as research on his model of penis continues.\
 February 2022 - Peeing resumes.
