@@ -32,7 +32,7 @@ February 1st 2021 - Peeing resumes.\
 November 2021 - At this point in time, peeing rate has slowed down significantly, peeing halts for the month.\
 December 2021 - Peeing resumes.\
 January 2022 - Peeing halts, pee begins building up as research on his model of penis continues.\
-February 2022 - Peeing resumes.
+February 2022 - Peeing resumes.\
 October 2022 - Anomaly discovered, research begins.\
 November 2022 - Peeing halts and begins building up.\
 December 2022 - Research predicts no pee will be emitted, nor produced, during this period.
