@@ -131,18 +131,18 @@ setInterval(async () => {
         for(i = 0; i < forbiddenDaysJan.length; i++) {
             if(day == forbiddenDaysJan[i] && hours >= 6) {
                 channel.send("<@368115473310547969> Consider the following: suck your pants");
-                return;
             }
         }
+        return;
     }
 
     if(month == 11) {
         for(i = 0; i < forbiddenDaysNov.length; i++) {
             if(day == forbiddenDaysNov[i] && hours >= 6) {
                 channel.send("<@368115473310547969> Consider the following: suck your pants");
-                return;
             }
         }
+        return;
     }
 
     if(month == 12) return;
