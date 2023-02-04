@@ -92,7 +92,7 @@ bot.on('messageCreate', async message => {
             return;
         }
         else {
-            peeingProgress++;
+            peeingProgress += 0.34;
 
             await keyv.set('stop-bool', stopped);
             await keyv.set('stop-date', stopDate);
