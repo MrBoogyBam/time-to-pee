@@ -29,7 +29,7 @@ bot.on('messageCreate', async message => {
     let args = message.content.toLowerCase().trim().split(/ +/g);
 
     if(message.content.toLowerCase().startsWith(`${prefix}setprogress`)) {
-        peeingProgress = args[1];
+        peeingProgress = Number(args[1]);
 
         await keyv.set("peeing-progress", peeingProgress);
 
@@ -90,9 +90,8 @@ bot.on('messageCreate', async message => {
 
             message.channel.send(`ok :thumbsup::skin-tone-1: (Current peeing progress: ${peeingProgress}%)`);
             return;
-        }
-        else {
-            peeingProgress += 0.34;
+        } else {
+            peeingProgress = Number((peeingProgress + 0.34).toFixed(2));
 
             await keyv.set('stop-bool', stopped);
             await keyv.set('stop-date', stopDate);
