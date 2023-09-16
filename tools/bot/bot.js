@@ -146,12 +146,7 @@ setInterval(async () => {
 
     if(month == 12) return;
 
-    if(peeingProgress >= 88 && (day == 15 && hours >= 6 || day == 30 && hours >= 6)) {
-        channel.send("<@368115473310547969> Consider the following: pee your pants");
-        return;
-    }
-
-    if(peeingProgress < 88 && (day == 5 && hours >= 6 || day == 10 && hours >= 6 || day == 15 && hours >= 6 || day == 20 && hours >= 6 || day == 25 && hours >= 6 || day == 30 && hours >= 6)) {
+    if(day == 5 && hours >= 6 || day == 10 && hours >= 6 || day == 15 && hours >= 6 || day == 20 && hours >= 6 || day == 25 && hours >= 6 || day == 30 && hours >= 6) {
         channel.send("<@368115473310547969> Consider the following: pee your pants");
         return;
     }
