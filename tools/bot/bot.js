@@ -13,8 +13,6 @@ const Keyv = require('keyv');
 const KeyvSqlite = require('@keyv/sqlite'); // i don't know where this line of code came from but i don't want to delete it so it's here to stay.
 const keyv = new Keyv('sqlite://database.db');
 const { joinVoiceChannel, getVoiceConnection, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
-const forbiddenDaysJan = [ 4, 8, 15, 19, 23, 27, 30 ];
-const forbiddenDaysNov = [ 5, 10, 15, 20, 25, 30 ];
 let peeingProgress = 0;
 let stopped = false;
 let stopDate = 0;
@@ -82,7 +80,11 @@ bot.on('messageCreate', async message => {
         stopDate = day;
 
         if(month == 11 || month == 1) {
-            peeingProgress--;
+            if(day != 30) {
+                peeingProgress--;
+            } else {
+                peeingProgress -= 0.6;
+            }
 
             await keyv.set('stop-bool', stopped);
             await keyv.set('stop-date', stopDate);
@@ -91,7 +93,7 @@ bot.on('messageCreate', async message => {
             message.channel.send(`ok :thumbsup::skin-tone-1: (Current peeing progress: ${peeingProgress}%)`);
             return;
         } else {
-            peeingProgress = Number((peeingProgress + 0.34).toFixed(2));
+            peeingProgress = Number((peeingProgress + 0.21).toFixed(2));
 
             await keyv.set('stop-bool', stopped);
             await keyv.set('stop-date', stopDate);
@@ -126,27 +128,12 @@ setInterval(async () => {
         return;
     }
 
-    if(month == 1) {
-        for(i = 0; i < forbiddenDaysJan.length; i++) {
-            if(day == forbiddenDaysJan[i] && hours >= 6) {
-                channel.send("<@368115473310547969> Consider the following: suck your pants");
-            }
+    if(day % 5 == 0 && hours >= 6) {
+        if(month == 1 || month == 11) {
+            channel.send("<@368115473310547969> Consider the following: suck your pants");
+            return;
         }
-        return;
-    }
 
-    if(month == 11) {
-        for(i = 0; i < forbiddenDaysNov.length; i++) {
-            if(day == forbiddenDaysNov[i] && hours >= 6) {
-                channel.send("<@368115473310547969> Consider the following: suck your pants");
-            }
-        }
-        return;
-    }
-
-    if(month == 12) return;
-
-    if(day == 5 && hours >= 6 || day == 10 && hours >= 6 || day == 15 && hours >= 6 || day == 20 && hours >= 6 || day == 25 && hours >= 6 || day == 30 && hours >= 6) {
         channel.send("<@368115473310547969> Consider the following: pee your pants");
         return;
     }
