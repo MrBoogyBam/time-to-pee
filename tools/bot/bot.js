@@ -44,7 +44,7 @@ bot.on('messageCreate', async message => {
 
     if(message.content.toLowerCase() == `<@952017794059370496> hop in`) {
         let player = createAudioPlayer();
-        let introduction = createAudioResource('D:/Discord bots/Markiplier the real/Audio/mark.mp3');
+        let introduction = createAudioResource('D:/Discord bots/Markiplier the real/time-to-pee/Audio/mark.mp3');
 
         player.play(introduction);
 
