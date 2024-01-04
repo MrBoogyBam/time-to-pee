@@ -16,6 +16,7 @@ const { joinVoiceChannel, getVoiceConnection, createAudioPlayer, createAudioReso
 let peeingProgress = 0;
 let stopped = false;
 let stopDate = 0;
+let connectedToVC = false;
 
 bot.on('ready', () => {
     console.log(`${bot.user.username} is ready.`);
@@ -45,8 +46,13 @@ bot.on('messageCreate', async message => {
     if(message.content.toLowerCase() == `<@952017794059370496> hop in`) {
         let player = createAudioPlayer();
         let introduction = createAudioResource('D:/Discord bots/Markiplier the real/time-to-pee/Audio/mark.mp3');
+        let reminder = createAudioResource('D:/Discord bots/Markiplier the real/time-to-pee/Audio/i\'m markiplier.mp3');
 
         player.play(introduction);
+
+        connectedToVC = true;
+
+        await imMarkiplier(player, reminder);
 
         joinVoiceChannel({
             channelId: message.member.voice.channelId,
@@ -63,6 +69,8 @@ bot.on('messageCreate', async message => {
     if(message.content.toLowerCase() == `<@952017794059370496> get the hell out`) {
         let botMember = bot.guilds.cache.get(message.guildId).members.cache.get(bot.user.id);
         getVoiceConnection(botMember.voice.guild.id).disconnect();
+
+        connectedToVC = false;
     }
 
     if(message.content.toLowerCase() == `${prefix}stop`) {
@@ -104,6 +112,19 @@ bot.on('messageCreate', async message => {
         }
     }
 });
+
+async function imMarkiplier(player, reminder) {
+    let timer = Math.floor(Math.random() * (600000 - 30000) + 30000);
+
+    if(connectedToVC) {
+        setTimeout(async () => {
+            player.play(reminder);
+            
+            reminder = createAudioResource('D:/Discord bots/Markiplier the real/time-to-pee/Audio/i\'m markiplier.mp3');
+            await imMarkiplier(player, reminder);
+        }, timer);
+    }
+}
 
 setInterval(async () => {
     let date = new Date();
