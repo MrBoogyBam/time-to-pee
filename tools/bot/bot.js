@@ -22,8 +22,8 @@ let stopped = false;
 let stopDate = 0;
 let connectedToVC = false;
 
-bot.on('ready', () => {
-    git.pull();
+bot.on('ready', async () => {
+    await git.pull();
 
     console.log(`${bot.user.username} is ready.`);
 });
