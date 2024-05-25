@@ -23,7 +23,11 @@ let stopDate = 0;
 let connectedToVC = false;
 
 bot.on('ready', async () => {
-    await git.pull();
+    try {
+        await git.pull();
+    } catch(error) {
+        console.error("Failed to git pull:", error)
+    }
 
     console.log(`${bot.user.username} is ready.`);
 });
