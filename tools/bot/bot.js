@@ -44,7 +44,7 @@ bot.on('messageCreate', async message => {
 
         await git.add(dbPath);
         await git.commit("Updated database.db");
-        await git.push(`https://${githubToken}@github.com/MrBoogyBam/ADGAC-Bot.git`, "main");
+        await git.push(`https://${githubToken}@github.com/MrBoogyBam/time-to-pee.git`, "main");
 
         message.channel.send("Done :white_check_mark:");
         return;
@@ -114,7 +114,7 @@ bot.on('messageCreate', async message => {
 
             await git.add(dbPath);
             await git.commit("Updated database.db");
-            await git.push(`https://${githubToken}@github.com/MrBoogyBam/ADGAC-Bot.git`, "main");
+            await git.push(`https://${githubToken}@github.com/MrBoogyBam/time-to-pee.git`, "main");
 
             message.channel.send(`ok :thumbsup::skin-tone-1: (Current peeing progress: ${peeingProgress}%)`);
             return;
@@ -127,7 +127,7 @@ bot.on('messageCreate', async message => {
 
             await git.add(dbPath);
             await git.commit("Updated database.db");
-            await git.push(`https://${githubToken}@github.com/MrBoogyBam/ADGAC-Bot.git`, "main");
+            await git.push(`https://${githubToken}@github.com/MrBoogyBam/time-to-pee.git`, "main");
 
             message.channel.send(`ok :thumbsup::skin-tone-1: (Current peeing progress: ${peeingProgress}%)`);
             return;
@@ -168,7 +168,7 @@ setInterval(async () => {
 
             await git.add(dbPath);
             await git.commit("Updated database.db");
-            await git.push(`https://${githubToken}@github.com/MrBoogyBam/ADGAC-Bot.git`, "main");
+            await git.push(`https://${githubToken}@github.com/MrBoogyBam/time-to-pee.git`, "main");
 
             return;
         }
