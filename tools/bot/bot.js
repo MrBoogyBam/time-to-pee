@@ -8,10 +8,14 @@ const bot = new Client( {
         GatewayIntentBits.GuildVoiceStates
     ]
 } );
-const { prefix, token } = require('./config.json');
+const { prefix, githubToken, token } = require('./config.json');
 const Keyv = require('keyv');
 const KeyvSqlite = require('@keyv/sqlite'); // i don't know where this line of code came from but i don't want to delete it so it's here to stay.
 const keyv = new Keyv('sqlite://database.db');
+const path = require("node:path");
+const simpleGit = require("simple-git");
+const dbPath = path.join(path.resolve(__dirname), "database.db");
+const git = simpleGit(path.resolve(__dirname));
 const { joinVoiceChannel, getVoiceConnection, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 let peeingProgress = 0;
 let stopped = false;
@@ -19,6 +23,8 @@ let stopDate = 0;
 let connectedToVC = false;
 
 bot.on('ready', () => {
+    git.pull();
+
     console.log(`${bot.user.username} is ready.`);
 });
 
@@ -31,6 +37,10 @@ bot.on('messageCreate', async message => {
         peeingProgress = Number(args[1]);
 
         await keyv.set("peeing-progress", peeingProgress);
+
+        await git.add(dbPath);
+        await git.commit("Updated database.db");
+        await git.push(`https://${githubToken}@github.com/MrBoogyBam/ADGAC-Bot.git`, "main");
 
         message.channel.send("Done :white_check_mark:");
         return;
@@ -98,6 +108,10 @@ bot.on('messageCreate', async message => {
             await keyv.set('stop-date', stopDate);
             await keyv.set('peeing-progress', peeingProgress);
 
+            await git.add(dbPath);
+            await git.commit("Updated database.db");
+            await git.push(`https://${githubToken}@github.com/MrBoogyBam/ADGAC-Bot.git`, "main");
+
             message.channel.send(`ok :thumbsup::skin-tone-1: (Current peeing progress: ${peeingProgress}%)`);
             return;
         } else {
@@ -106,6 +120,10 @@ bot.on('messageCreate', async message => {
             await keyv.set('stop-bool', stopped);
             await keyv.set('stop-date', stopDate);
             await keyv.set('peeing-progress', peeingProgress);
+
+            await git.add(dbPath);
+            await git.commit("Updated database.db");
+            await git.push(`https://${githubToken}@github.com/MrBoogyBam/ADGAC-Bot.git`, "main");
 
             message.channel.send(`ok :thumbsup::skin-tone-1: (Current peeing progress: ${peeingProgress}%)`);
             return;
@@ -143,6 +161,10 @@ setInterval(async () => {
             stopped = false;
             
             await keyv.set('stop-bool', stopped);
+
+            await git.add(dbPath);
+            await git.commit("Updated database.db");
+            await git.push(`https://${githubToken}@github.com/MrBoogyBam/ADGAC-Bot.git`, "main");
 
             return;
         }
