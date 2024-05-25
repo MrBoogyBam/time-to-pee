@@ -1,3 +1,4 @@
 /node_modules
+/tools/bot/node_modules
 /Audio
 config.json
